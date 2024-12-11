@@ -1,0 +1,16 @@
+# 忽略環境
+.venv/
+env/*
+cog_sdxl/
+
+# 忽略下載文件
+app/downloads/*
+
+# 忽略編譯的 Python 文件
+*.py[cod]
+
+# 忽略 macOS 系統生成的文件
+.DS_Store
+
+# 保留空目錄被 git 追蹤
+!.gitkeep

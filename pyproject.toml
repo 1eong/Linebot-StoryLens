@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "hugging-face"
+version = "0.1.0"
+description = ""
+authors = ["Daniel Leong <daniel.leong@program.com.tw>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.115.6"
+uvicorn = "^0.32.1"
+requests = "^2.32.3"
+transformers = "^4.47.0"
+python-dotenv = "^1.0.1"
+line-bot-sdk = "^3.14.2"
+replicate = "^1.0.4"
+diffusers = "^0.31.0"
+accelerate = "^1.2.0"
+safetensors = "^0.4.5"
+huggingface-hub = "^0.26.5"
+pandas = "^2.2.3"
+peft = "^0.14.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
