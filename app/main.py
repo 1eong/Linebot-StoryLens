@@ -1,12 +1,28 @@
+import torch
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from app.routes.line_webhook import line_router
 from app.config import get_config
+from app.resource_monitor import system_monitoring_middleware
+from app.utils.logger import system_logger
 
-app = FastAPI()
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # 啟動時執行
+    system_logger.info("Application is starting up")
+    
+    # 釋放資源時執行
+    yield
+    
+    system_logger.info("Application is shutting down")
+
+app = FastAPI(
+    title="LineBot AI Service",
+    description="LineBot with AI-powered services",
+    lifespan=lifespan
+)
+app.middleware("http")(system_monitoring_middleware)
 app.include_router(line_router)
-
-print("main")
-
 
 @app.get("/")
 def read_root():

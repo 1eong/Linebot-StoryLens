@@ -20,7 +20,23 @@ safetensors = "^0.4.5"
 huggingface-hub = "^0.26.5"
 pandas = "^2.2.3"
 peft = "^0.14.0"
+torch = {version = "^2.5.1+cu124", source = "pytorch-gpu"}
+torchvision = {version = "^0.20.1+cu124", source = "pytorch-gpu"}
+torchaudio = {version = "^2.5.1+cu124", source = "pytorch-gpu"}
+sentencepiece = "^0.2.0"
+aiofiles = "^24.1.0"
+bitsandbytes = "^0.45.0"
+numpy = "2.0"
+ffmpeg-python = "^0.2.0"
+ffprobe = "^0.5"
+nltk = "^3.9.1"
+gputil = "^1.4.0"
+jsonschema = "^4.23.0"
 
+[[tool.poetry.source]]
+name = "pytorch-gpu"
+url = "https://download.pytorch.org/whl/cu124"
+priority = "explicit"
 
 [build-system]
 requires = ["poetry-core"]

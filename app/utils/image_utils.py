@@ -1,17 +1,15 @@
-from typing import BinaryIO
-
+import aiofiles
 
 class ImageHelper:
     @staticmethod
-    def download_binary_stream(stream: BinaryIO, save_path: str) -> None:
+    def download_binary_stream(stream:bytes, save_path: str) -> None:
         """
-        從二進位流下載資料並保存到指定路徑。
+        Saves the binary stream to the specified file path.
         """
+        print("download image!")
         try:
             with open(save_path, "wb") as f:
-                for chunk in stream.iter_content(chunk_size=1024):
-                    if chunk:
-                        f.write(chunk)
+                f.write(stream)
             print(f"File successfully download to {save_path}")
         except Exception as e:
             print(f"Failed to download the file: {e}")
